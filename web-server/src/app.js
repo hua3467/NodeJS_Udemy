@@ -7,7 +7,7 @@ const app = express();
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, "../public");
 const viewsPath = path.join(__dirname, "../templates/views");
-const partialsPath = path.join(__dirname, "../tamplates/partials");
+const partialsPath = path.join(__dirname, '../templates/partials');
 
 // Setup handlebars engin and views location
 app.set('view engine', 'hbs');
@@ -39,7 +39,10 @@ app.get("/help", (req, res) => {
 })
 
 app.get("/weather", (req, res) => {
-    res.send("Weather");
+    res.send({
+        forecast: 'It is snowing',
+        location: 'Philadelphia'
+    });
 });
 
 app.listen(3000, () => {
